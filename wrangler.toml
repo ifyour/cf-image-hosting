@@ -1,21 +1,12 @@
 name = "cf-image-hosting"
 compatibility_date = "2023-12-01"
+main = "src/index.ts"
 
-# [vars]
-# MY_VARIABLE = "production_value"
+[env.dev.vars]
+API_HOST = "https://telegraph.mingming.dev"
 
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-# [[r2_buckets]]
-# binding = "MY_BUCKET"
-# bucket_name = "my-bucket"
-
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "my-database"
-# database_id = ""
+[env.prod.vars]
+API_HOST = "https://telegra.ph"
 
 [site]
 bucket = "./src"
