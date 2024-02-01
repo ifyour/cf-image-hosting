@@ -56,9 +56,7 @@ function onFileUrlCopy() {
 function handleUpload(file) {
   const formData = new FormData();
   formData.append("file", file);
-
   document.querySelector(".upload-btn").textContent = "Uploading...";
-
   fetch("/upload", { method: "POST", body: formData })
     .then((response) => response.json())
     .then((data) => {
