@@ -32,6 +32,7 @@ npm run deploy
 - [ ] Save history of uploading
 - [ ] Support setting white list to prevent abusing
 - [ ] Support copying multiple formats, such as Markdown
+- [ ] Support compressed images
 
 ### FAQ
 
