@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Telegraph Image Hosting</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
 
-  <body>
-    <div class="container" ondragover="event.preventDefault()">
-      <h2 class="text-center">Telegraph Image Hosting</h2>
-      <p class="text-center text-muted">Free & Unlimited Image Hosting</p>
-      <br />
-      <div class="upload-btn-wrapper text-center">
-        <span class="upload-btn">Upload an Image</span>
-        <input
-          type="file"
-          name="file"
-          id="fileInput"
-          accept="image/png, image/jpeg, image/jpg, image/gif"
-        />
-      </div>
-      <div id="uploadStatus" style="margin-top: 20px"></div>
-      <p>
-        Powered By <a href="https://telegra.ph" target="_blank">Telegraph</a>
-      </p>
-      <a href="https://github.com/ifyour/cf-image-hosting" target="_blank"
-        >GitHub</a
-      >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegraph Image Hosting</title>
+  <link rel="stylesheet" href="./lib/bootstrap.min.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="container" ondragover="event.preventDefault()">
+    <h2 class="text-center">Telegraph Image Hosting</h2>
+    <p class="text-center text-muted">Free & Unlimited Image Hosting</p>
+    <br />
+    <div class="upload-btn-wrapper text-center">
+      <span class="upload-btn">Upload an Image</span>
+      <input type="file" name="file" id="fileInput" accept="image/png, image/jpeg, image/jpg, image/gif" />
     </div>
+    <div id="uploadStatus" style="margin-top: 20px"></div>
+    <p>Powered By <a href="https://telegra.ph" target="_blank">Telegraph</a></p>
+    <a href="https://github.com/ifyour/cf-image-hosting" target="_blank">GitHub</a>
+  </div>
 
-    <script src="./script.js"></script>
-  </body>
+  <script src="./script.js"></script>
+</body>
+
 </html>
