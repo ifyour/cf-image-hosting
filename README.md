@@ -26,6 +26,13 @@ npm run dev
 npm run deploy
 ```
 
+### Development Plan
+
+- [ ] Redesign UI
+- [ ] Save history of uploading
+- [ ] Support setting white list to prevent abusing
+- [ ] Support copying multiple formats, such as Markdown
+
 ### FAQ
 
 <details>
