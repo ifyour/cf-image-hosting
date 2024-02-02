@@ -29,12 +29,6 @@ npm run deploy
 ### FAQ
 
 <details>
-  <summary>How to bind a domain name？</summary>
-  Triggers -> Custom Domains -> Add a custom domain.
-  <img src="https://cf-image-hosting.ifyour.workers.dev/file/a7e19c9e0f169861fefa6.png" width="700">
-</details>
-
-<details>
   <summary>How to deploy to Cloudflare?</summary>
 
 ```bash
@@ -43,6 +37,12 @@ $ cd cf-image-hosting
 $ npm run install && npm run deploy
 ```
 
+</details>
+
+<details>
+  <summary>How to bind a domain name?</summary>
+  Triggers -> Custom Domains -> Add a custom domain.
+  <img src="https://cf-image-hosting.ifyour.workers.dev/file/a7e19c9e0f169861fefa6.png" width="700">
 </details>
 
 ### Credits
