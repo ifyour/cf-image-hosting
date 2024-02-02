@@ -1,32 +1,32 @@
-### Cloudflare Image Hosting
+## Cloudflare Image Hosting
 
 Free unlimited image hosting on Telegraph, deployed on Cloudflare.
 
-#### Features
+### Features
 
 - Free & Unlimited
 - Drag & Drop to upload
 - Copy & Paste to upload
 - Max file size is 5MB
 
-#### Screenshots
+### Screenshots
 
 <img src="https://cf-image-hosting.ifyour.workers.dev/file/fd4045cb45789bcfcbe88.png" width="700">
 
-#### Development
+### Development
 
 ```
 npm install
 npm run dev
 ```
 
-#### Deployment
+### Deployment
 
 ```
 npm run deploy
 ```
 
-#### FAQ
+### FAQ
 
 <details>
   <summary>How to bind a domain name？</summary>
@@ -39,18 +39,18 @@ npm run deploy
 
 ```bash
 $ git clone https://github.com/ifyour/cf-image-hosting.git
-$ cd cf-image-hosting && npm run install
-$ npm run deploy
+$ cd cf-image-hosting
+$ npm run install && npm run deploy
 ```
 
 </details>
 
-#### Credits
+### Credits
 
 - [missuo/Telegraph-Image-Hosting](https://github.com/missuo/Telegraph-Image-Hosting)
 - Telegraph
 - Cloudflare
 
-#### License
+### License
 
-Distributed under the MIT License.
+MIT
