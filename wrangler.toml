@@ -1,12 +1,10 @@
 name = "cf-image-hosting"
 compatibility_date = "2023-12-01"
 main = "src/index.ts"
+vars = { API_HOST = "https://telegra.ph" }
 
 [env.dev.vars]
 API_HOST = "https://telegraph.mingming.dev"
-
-[env.prod.vars]
-API_HOST = "https://telegra.ph"
 
 [site]
 bucket = "./src"
