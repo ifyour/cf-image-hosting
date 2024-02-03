@@ -11,7 +11,7 @@ Free unlimited image hosting on Telegraph, deployed on Cloudflare.
 
 ### Screenshots
 
-<img src="https://cf-image-hosting.ifyour.workers.dev/file/fd4045cb45789bcfcbe88.png" width="700">
+<img src="https://images.mingming.dev/file/a880a86209e32ccec4f24.png" width="700" />
 
 ### Development
 
@@ -50,7 +50,7 @@ $ npm run install && npm run deploy
 <details>
   <summary>How to bind a domain name?</summary>
   Triggers -> Custom Domains -> Add a custom domain.
-  <img src="https://images.mingming.dev/file/a880a86209e32ccec4f24.png" width="700">
+  <img src="https://images.mingming.dev/file/a7e19c9e0f169861fefa6.png" width="700" />
 </details>
 
 ### Credits
