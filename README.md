@@ -29,10 +29,10 @@ npm run deploy
 ### Development Plan
 
 - [x] Redesign UI
+- [x] Support compressed images
 - [ ] Save history of uploading
 - [ ] Support setting white list to prevent abusing
 - [ ] Support copying multiple formats, such as Markdown
-- [ ] Support compressed images
 
 ### FAQ
 

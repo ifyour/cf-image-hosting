@@ -53,41 +53,61 @@ function onFileUrlCopy() {
   }, 1000);
 }
 
+function compressedFile(file) {
+  const maxFileSize = 5 * 1024 * 1024; // 5MB
+  return new Promise((resolve) => {
+    if (file.size <= maxFileSize) {
+      resolve(file);
+    } else {
+      imageCompression(file, { maxSizeMB: 5 })
+        .then((compressedFile) => {
+          resolve(compressedFile);
+        })
+        .catch((error) => {
+          console.error(">> imageCompression error", error);
+          resolve(file);
+        });
+    }
+  });
+}
+
 function handleUpload(file) {
-  const formData = new FormData();
-  formData.append("file", file);
   document.querySelector(".upload-text").textContent = "Uploading...";
   document.querySelector(".spinner-grow").classList.remove("d-none");
-  fetch("/upload", { method: "POST", body: formData })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data && data.error) {
-        throw new Error(data.error);
-      }
-      const src = window.location.origin + data[0].src;
-      uploadStatus.innerHTML = `
-      <div class="alert alert-success text-center">Successful 🥳</div>
-      <div class="input-group">
-        <input type="text" class="form-control" id="imageUrl" value="${src}">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary copy-btn" type="button">Copy</button>
+  compressedFile(file).then((compressedFile) => {
+    const formData = new FormData();
+    formData.append("file", compressedFile);
+    fetch("/upload", { method: "POST", body: formData })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.error) {
+          throw new Error(data.error);
+        }
+        const src = window.location.origin + data[0].src;
+        uploadStatus.innerHTML = `
+        <div class="alert alert-success text-center">Successful 🥳</div>
+        <div class="input-group">
+          <input type="text" class="form-control" id="imageUrl" value="${src}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary copy-btn" type="button">Copy</button>
+          </div>
         </div>
-      </div>
-      <img style="margin-top: 10px" src="${src}" class="img-fluid mb-3" alt="Uploaded Image">
-      `;
-      document
-        .querySelector(".copy-btn")
-        .addEventListener("click", onFileUrlCopy);
-    })
-    .catch((error) => {
-      uploadStatus.innerHTML = `
-      <div class="alert alert-danger">${
-        error || "Upload failed. Please try again."
-      }</div>
-      `;
-    })
-    .finally(() => {
-      document.querySelector(".upload-text").textContent = "Upload Again";
-      document.querySelector(".spinner-grow").classList.add("d-none");
-    });
+        <img style="margin-top: 10px" src="${src}" class="img-fluid mb-3" alt="Uploaded Image">
+        `;
+        document
+          .querySelector(".copy-btn")
+          .addEventListener("click", onFileUrlCopy);
+      })
+      .catch((error) => {
+        uploadStatus.innerHTML = `
+        <div class="alert alert-danger">${
+          error || "Upload failed. Please try again."
+        }</div>
+        `;
+      })
+      .finally(() => {
+        document.querySelector(".upload-text").textContent = "Upload Again";
+        document.querySelector(".spinner-grow").classList.add("d-none");
+      });
+  });
 }
