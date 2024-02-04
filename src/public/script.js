@@ -56,7 +56,7 @@ function onFileUrlCopy() {
 function compressedFile(file) {
   const maxFileSize = 5 * 1024 * 1024; // 5MB
   return new Promise((resolve) => {
-    if (file.size <= maxFileSize) {
+    if (file.size <= maxFileSize || file.name.toLowerCase().endsWith(".gif")) {
       resolve(file);
     } else {
       imageCompression(file, { maxSizeMB: 5 })
