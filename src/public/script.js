@@ -29,13 +29,15 @@ function onFilePaste(event) {
       const reader = new FileReader();
       reader.onload = (event) => {
         const base64Data = event.target.result.split(",")[1];
+        const dataType = event.target.result.split(";")[0];
+        const fileType = dataType.split(":")[1];
         const data = window.atob(base64Data);
         const ia = new Uint8Array(data.length);
         for (let i = 0; i < data.length; i++) {
           ia[i] = data.charCodeAt(i);
         }
-        const blob = new Blob([ia.buffer], { type: "image/jpeg" });
-        const file = new File([blob], "screenshot.jpg");
+        const blob = new Blob([ia.buffer], { type: fileType });
+        const file = new File([blob], "screenshot.jpg", { type: fileType });
         handleUpload(file);
       };
       reader.readAsDataURL(blob);
@@ -53,10 +55,10 @@ function onFileUrlCopy() {
   }, 1000);
 }
 
-function compressedFile(file) {
+function compressedImage(file) {
   const maxFileSize = 5 * 1024 * 1024; // 5MB
   return new Promise((resolve) => {
-    if (file.size <= maxFileSize || file.name.toLowerCase().endsWith(".gif")) {
+    if (file.size <= maxFileSize || !file.type.startsWith("image")) {
       resolve(file);
     } else {
       imageCompression(file, { maxSizeMB: 5 })
@@ -74,7 +76,7 @@ function compressedFile(file) {
 function handleUpload(file) {
   document.querySelector(".upload-text").textContent = "Uploading...";
   document.querySelector(".spinner-grow").classList.remove("d-none");
-  compressedFile(file).then((compressedFile) => {
+  compressedImage(file).then((compressedFile) => {
     const formData = new FormData();
     formData.append("file", compressedFile);
     fetch("/upload", { method: "POST", body: formData })
@@ -86,13 +88,17 @@ function handleUpload(file) {
         const src = window.location.origin + data[0].src;
         uploadStatus.innerHTML = `
         <div class="alert alert-success text-center">Successful 🥳</div>
-        <div class="input-group">
+        <div class="input-group" style="margin-bottom: 10px">
           <input type="text" class="form-control" id="imageUrl" value="${src}">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary copy-btn" type="button">Copy</button>
           </div>
         </div>
-        <img style="margin-top: 10px" src="${src}" class="img-fluid mb-3" alt="Uploaded Image">
+        ${
+          file.type.startsWith("video")
+            ? `<video src="${src}" controls></video>`
+            : `<img src="${src}" class="img-fluid mb-3" alt="Uploaded Image">`
+        }
         `;
         document
           .querySelector(".copy-btn")
