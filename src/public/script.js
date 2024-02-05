@@ -55,7 +55,7 @@ function onFileUrlCopy() {
   }, 1000);
 }
 
-function compressedImage(file) {
+function handleCompressFile(file) {
   const maxFileSize = 5 * 1024 * 1024; // 5MB
   return new Promise((resolve) => {
     if (file.size <= maxFileSize || !file.type.startsWith("image")) {
@@ -76,7 +76,7 @@ function compressedImage(file) {
 function handleUpload(file) {
   document.querySelector(".upload-text").textContent = "Uploading...";
   document.querySelector(".spinner-grow").classList.remove("d-none");
-  compressedImage(file).then((compressedFile) => {
+  handleCompressFile(file).then((compressedFile) => {
     const formData = new FormData();
     formData.append("file", compressedFile);
     fetch("/upload", { method: "POST", body: formData })
