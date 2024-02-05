@@ -47,12 +47,17 @@ function onFilePaste(event) {
 
 function onFileUrlCopy() {
   const imageUrl = document.getElementById("imageUrl");
-  imageUrl.select();
-  document.execCommand("copy");
-  document.querySelector(".copy-btn").textContent = "Copied ✨";
-  setTimeout(() => {
-    document.querySelector(".copy-btn").textContent = "Copy";
-  }, 1000);
+  navigator.clipboard
+    .writeText(imageUrl.value)
+    .then(() => {
+      document.querySelector(".copy-btn").textContent = "Copied ✨";
+      setTimeout(() => {
+        document.querySelector(".copy-btn").textContent = "Copy";
+      }, 1000);
+    })
+    .catch((error) => {
+      console.error("Failed to copy URL", error);
+    });
 }
 
 function handleCompressFile(file) {
