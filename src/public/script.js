@@ -96,7 +96,7 @@ function handleUpload(file) {
         </div>
         ${
           file.type.startsWith("video")
-            ? `<video src="${src}" controls></video>`
+            ? `<video src="${src}" class="img-fluid mb-3" controls></video>`
             : `<img src="${src}" class="img-fluid mb-3" alt="Uploaded Image">`
         }
         `;
