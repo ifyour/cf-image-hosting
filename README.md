@@ -31,7 +31,7 @@ npm run deploy
 - [x] Redesign UI
 - [x] Support compress image
 - [ ] Save history of upload
-- [ ] Support set whitelist to prevent abusing
+- [ ] Support set whitelist to prevent abuse
 - [ ] Support copy multiple formats, such as Markdown
 
 ### FAQ
