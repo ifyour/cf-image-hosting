@@ -3,7 +3,7 @@ import { serveStatic } from "hono/cloudflare-workers";
 
 const app = new Hono<{ Bindings: { API_HOST: string } }>();
 
-app.get("/*", serveStatic({ root: "./public" }));
+app.get("/*", serveStatic({ root: "./" }));
 
 app.post("/upload", async (c) => {
   const body = await c.req.parseBody();
