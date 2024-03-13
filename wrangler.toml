@@ -9,4 +9,4 @@ API_HOST = "https://telegra.ph"
 API_HOST = "https://images.mingming.dev"
 
 [site]
-bucket = "./src/public"
+bucket = "./public"
