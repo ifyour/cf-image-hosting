@@ -1,12 +1,2 @@
 name = "cf-image-hosting"
-compatibility_date = "2023-12-01"
-main = "src/index.ts"
-
-[vars]
-API_HOST = "https://telegra.ph"
-
-[env.dev.vars]
-API_HOST = "https://images.mingming.dev"
-
-[site]
-bucket = "./public"
+pages_build_output_dir = "./dist"

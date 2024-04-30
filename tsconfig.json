@@ -4,13 +4,9 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "strict": true,
-    "lib": [
-      "ESNext"
-    ],
-    "types": [
-      "@cloudflare/workers-types"
-    ],
+    "lib": ["ESNext"],
+    "types": ["@cloudflare/workers-types", "vite/client"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
-  },
+  }
 }
