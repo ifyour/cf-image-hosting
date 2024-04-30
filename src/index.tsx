@@ -1,10 +1,8 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-
 import { Home } from "./Home";
-import { API_HOST } from "./env";
 
-const app = new Hono();
+const app = new Hono<{ Bindings: { API_HOST: string } }>();
 
 app.get("/", (c) => c.html(<Home />));
 
@@ -13,7 +11,7 @@ app.post("/upload", cors(), async (c) => {
   const file = body.file as File;
   const formData = new FormData();
   formData.append("file", file, file.name);
-  const response = await fetch(`${API_HOST}/upload`, {
+  const response = await fetch(`${c.env.API_HOST}/upload`, {
     method: "POST",
     body: formData,
   });
@@ -23,7 +21,7 @@ app.post("/upload", cors(), async (c) => {
 });
 
 app.get("/file/:name", async (c) => {
-  const response = await fetch(`${API_HOST}/file/${c.req.param("name")}`);
+  const response = await fetch(`${c.env.API_HOST}/file/${c.req.param("name")}`);
   return c.newResponse(response.body as ReadableStream, {
     headers: response.headers,
   });

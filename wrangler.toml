@@ -1,0 +1,6 @@
+name = "cf-image-hosting"
+pages_build_output_dir = "./dist"
+compatibility_date = "2024-04-30"
+
+[env.production.vars]
+API_HOST = "https://telegra.ph"
