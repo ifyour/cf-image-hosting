@@ -1,5 +1,5 @@
-const fileInput = document.getElementById("fileInput");
-const uploadStatus = document.getElementById("uploadStatus");
+const fileInput = document.querySelector("#fileInput");
+const uploadStatus = document.querySelector("#uploadStatus");
 const fullWindow = document.querySelector(".full-window");
 
 document.addEventListener("paste", onFilePaste);
@@ -46,7 +46,7 @@ function onFilePaste(event) {
 }
 
 function onFileUrlCopy() {
-  const imageUrl = document.getElementById("imageUrl");
+  const imageUrl = document.querySelector("#imageUrl");
   navigator.clipboard
     .writeText(imageUrl.value)
     .then(() => {
