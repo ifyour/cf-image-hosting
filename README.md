@@ -53,12 +53,6 @@ $ npm run install && npm run deploy
   <img src="https://images.mingming.dev/file/a7e19c9e0f169861fefa6.png" width="700" />
 </details>
 
-### Credits
-
-- [missuo/Telegraph-Image-Hosting](https://github.com/missuo/Telegraph-Image-Hosting)
-- Telegraph
-- Cloudflare
-
 ### License
 
 MIT
