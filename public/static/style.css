@@ -31,3 +31,25 @@
   opacity: 0;
   height: 100%;
 }
+
+#uploadStatus .alert {
+  padding: 6px;
+}
+
+#imageUrl {
+  border-color: #6e757c;
+}
+
+.copy-btn {
+  color: #6e757c;
+}
+
+.copy-btn:focus {
+  box-shadow: none !important;
+}
+
+.spinner-grow-sm {
+  margin-right: 10px;
+  position: relative;
+  top: -2px;
+}
