@@ -30,7 +30,7 @@ app.get("/file/:name", async (c) => {
 app.onError((error, c) => {
   return c.json(
     { code: 500, message: error?.message || "Server internal error" },
-    500
+    500,
   );
 });
 
